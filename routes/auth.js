@@ -13,7 +13,7 @@ router.post("/register", async (req, res) => {
         const hashed = await bcrypt.hash(password, 10);
 
         await pool.query(
-            "INSERT INTO users_email (email, password) VALUES ($1, $2)",
+            "INSERT INTO users (email, password) VALUES ($1, $2)",
             [email, hashed]
         );
 
@@ -31,7 +31,7 @@ router.post("/login", async (req, res) => {
 
     try {
         const result = await pool.query(
-            "SELECT * FROM users_email WHERE email = $1 LIMIT 1",
+            "SELECT * FROM users WHERE email = $1 LIMIT 1",
             [email]
         );
 
