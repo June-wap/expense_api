@@ -1,5 +1,5 @@
 import pg from "pg";
-import dotenv from "dotenv";
+import dotenv from "dotenv/lib/main";
 
 dotenv.config();
 
